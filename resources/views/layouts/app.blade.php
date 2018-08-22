@@ -40,7 +40,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav_item">
-                            <a class="nav-link" href="{{ url('home') }}">Home</a>
+                            <a class="nav-link" href="{{ url('.') }}">Home</a>
                         </li>
                         <li class="nav_item">
                             <a class="nav-link" href="{{ url('product') }}">Product</a>
