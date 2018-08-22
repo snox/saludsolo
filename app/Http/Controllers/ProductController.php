@@ -64,9 +64,21 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+
+        $this->validate($request, array('name' => 'required',
+            'content' => 'required'));
+
+        $product->name = $request->input('name');
+        $product->content = $request->input('content');
+
+        $product->save();
+
+        //Session::flash('success', 'Product updated');
+
+        return redirect()->route('product.show', $id);
     }
 
     /**

@@ -28,6 +28,8 @@
 
 			{{ Form::label('content', "Body:", ['class' => 'form-spacing-top']) }}
 			{{ Form::textarea('content', null, ['class' => 'form-control']) }}
+
+            {{ Form::submit('Update', ['class' => 'btn btn-block btn-success', 'style' => 'margin-top: 15px;']) }}
         </div>
         {!! Form::close() !!}
     </div>
