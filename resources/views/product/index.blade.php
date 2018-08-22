@@ -1,23 +1,17 @@
-@extends('layouts.main')
+@extends('layouts.product')
 
-@section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card-header">Products</div>
+@section('products')
+    <div class="card-header">Products</div>
 
-                @foreach ($products as $product)
+    @foreach ($products as $product)
 
-                    <div>
-                        <a href="{{ route('product.show', $product->id) }}">{{$product->name}}</a>
-                    </div>
-
-                @endforeach
-
-                <div class="text-center">
-                    {!! $products->links(); !!}
-                </div>
-            </div>
+        <div>
+            <a href="{{ route('product.show', $product->id) }}">{{$product->name}}</a>
         </div>
+
+    @endforeach
+
+    <div class="text-center">
+        {!! $products->links(); !!}
     </div>
 @endsection

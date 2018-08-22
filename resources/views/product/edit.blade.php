@@ -11,8 +11,9 @@
     <script>
         tinymce.init({
             selector: 'textarea',
-            plugins: 'link code',
-            menubar: false
+            plugins: 'link code autoresize table',
+            menubar: false,
+            toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | table link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
         });
     </script>
 
@@ -20,9 +21,9 @@
 
 @section('content')
 
-    <div class="row">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
     	{!! Form::model($product, ['route' => ['product.update', $product->id], 'method' => 'PUT']) !!}
-        <div class="col-md-8">
 			{{ Form::label('name', 'Title:') }}
 			{{ Form::text('name', null, ["class" => 'form-control input-lg']) }}
 
@@ -30,8 +31,8 @@
 			{{ Form::textarea('content', null, ['class' => 'form-control']) }}
 
             {{ Form::submit('Update', ['class' => 'btn btn-block btn-success', 'style' => 'margin-top: 15px;']) }}
+            {!! Form::close() !!}
         </div>
-        {!! Form::close() !!}
     </div>
 
 @endsection

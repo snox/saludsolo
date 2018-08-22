@@ -1,20 +1,16 @@
-@extends('layouts.main')
+@extends('layouts.product')
 
 @section('title', '| View ' . $product->name)
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h1>{{ $product->name }}</h1>
+@section('products')
 
-            <p class="lead">{!! $product->content !!}</p>
+    <div class="card-header">{{ $product->name }}</div>
 
-            <hr>
 
-           <a href="{{ route('product.edit', $product->id) }}">Edit</a>
-        </div>
-    </div>
-</div>
+<p class="lead">{!! $product->content !!}</p>
+
+<hr>
+
+<a href="{{ route('product.edit', $product->id) }}">Edit</a>
 
 @endsection
