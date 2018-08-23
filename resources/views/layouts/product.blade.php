@@ -20,6 +20,6 @@
 
 @section('banner')
     <div style="align-content: center; background: url('repository/product_center.jpg'); height: 585px;">
-        <img src="" />
+
     </div>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.product')
 
 @section('content')
 <div class="container">
@@ -20,4 +20,10 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('banner')
+    <div style="align-content: center; background: url('repository/index_1.jpg'); height: 585px;">
+
+    </div>
 @endsection

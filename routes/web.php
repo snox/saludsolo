@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/contact', 'HomeController@contractUs')->name('home');
 
 Route::resource('product', 'ProductController')->name('get', 'product');

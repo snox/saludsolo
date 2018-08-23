@@ -21,9 +21,12 @@
                         <a class="nav-link" href="{{ url('.') }}">Home</a>
                     </li>
                     <li class="nav_item">
+                        <a class="nav-link" href="{{ url('contact') }}">Contact</a>
+                    </li>
+                    <li class="nav_item">
                         <a class="nav-link" href="{{ url('product') }}">Product</a>
                     </li>
-                    <!-- Authentication Links -->
+                    <!-- Authentication Links
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -50,6 +53,7 @@
                             </div>
                         </li>
                     @endguest
+                        -->
                 </ul>
             </div>
         </div>
