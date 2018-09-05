@@ -11,11 +11,12 @@
             <div class="col-3">
             <section>
             <div class="card">
-                <div class="card-header">{{$product->name}}</div>
-                <img class="card-img-top" src="{{$product->image}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{$product->name}}</h5>
-                </div>
+                <a href="{{ route('products.show', $product->id) }}">
+                    <img class="card-img-top" src="{{$product->image}}" alt="{{$product->name}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$product->name}}</h5>
+                    </div>
+                </a>
             </div>
             </section>
             </div>

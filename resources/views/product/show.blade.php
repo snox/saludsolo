@@ -11,6 +11,6 @@
 
 <hr>
 
-<a href="{{ route('product.edit', $product->id) }}">Edit</a>
+<a href="{{ route('products.edit', $product->id) }}">Edit</a>
 
 @endsection
