@@ -8,7 +8,17 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-laravel {
-  background-color: #fff;
+.navbar-main {
+  background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-logo {
+  margin: 0;
+}
+
+.title_banner {
+  margin-top: -61px;
+  align-content: center;
+  height: 585px;
 }

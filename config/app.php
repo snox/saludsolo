@@ -162,6 +162,11 @@ return [
 
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
+        Spatie\Permission\PermissionServiceProvider::class,     
+        Laracasts\Flash\FlashServiceProvider::class,        
+        Collective\Html\HtmlServiceProvider::class,
+
+        Lavary\Menu\ServiceProvider::class,
     ],
 
     /*
@@ -211,6 +216,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
+        'Menu'      => Lavary\Menu\Facade::class,
     ],
 
 ];

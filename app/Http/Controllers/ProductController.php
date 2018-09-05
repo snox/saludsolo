@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Spatie\Menu\Laravel\Menu;
 
 class ProductController extends Controller
 {
@@ -15,6 +17,26 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::orderBy('id', 'desc')->paginate(20);
+
+        $cates = ProductCategory::all();
+
+        foreach ($products as $product)
+        {
+            $product->image = str_replace('_{i}xa.png', '', $product->image);
+        }
+
+        return view('product.index')->withProducts($products)->withProductCategories($cates);
+    }
+
+    public function cate($id)
+    {
+        $products = Product::orderBy('id', 'desc')->paginate(20);
+
+        foreach ($products as $product)
+        {
+            $product->image = str_replace('_{i}xa.png', '', $product->image);
+        }
+
         return view('product.index')->withProducts($products);
     }
 

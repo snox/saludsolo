@@ -5,20 +5,21 @@
     </head>
 
     <body>
-        @include('partials._nav')
+        <div id="app">
+            @include('partials._nav')
 
-        @yield('banner')
+            @yield('banner')
 
-        <div class="container">
-            @include('partials._messages')
+            <div class="container">
+                @include('partials._messages')
 
-            @yield('content')
+                @yield('content')
 
-            @include('partials._footer')
-        </div> <!-- end of .container -->
+                @include('partials._footer')
+            </div> <!-- end of .container -->
+
+        </div>
 
         @include('partials._javascript')
-
-        @yield('scripts')
     </body>
 </html>

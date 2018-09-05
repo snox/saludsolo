@@ -2,24 +2,19 @@
 
 @section('content')
 
+    <div class="row justify-content-center">
+        <div class="col-8">
+            @yield('products')
 
-    <div class="container">
+        </div>
+        <div class="col-4">
 
-        
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                @yield('products')
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
         </div>
     </div>
 @endsection
 
 @section('banner')
-    <div style="align-content: center; background: url('repository/product_center.jpg'); height: 585px;">
+    <div class="title_banner" style="background: url('repository/product_center.jpg'); ">
 
     </div>
 @endsection
