@@ -22,3 +22,19 @@ Route::get('/admin', 'HomeController@admin')->name('admin');
 Route::resource('products', 'ProductController')->name('get', 'products');
 Route::resource('users', 'UserController')->name('get', 'users');
 Route::resource('roles', 'RoleController')->name('get', 'roles');
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Auth', 'middleware' => 'web'], function () {
+    
+    Route::get('login', 'LoginController@showLoginForm')->name('login');
+    Route::post('login}', 'LoginController@login');
+    Route::get('logout', 'LoginController@logout')->name('logout');
+});
+
+
+// Route::group(['prefix' => '/'], function() {    
+//     Route::get('', function() {
+//         return view('FrontendContents.index');
+//     })->name('home');
+//     Route::get('category/{id}-{slug}', 'Frontend\CategoryController@detail')->name('category');
+    
+// });

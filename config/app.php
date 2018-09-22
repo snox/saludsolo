@@ -167,6 +167,12 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         Lavary\Menu\ServiceProvider::class,
+
+        Dimsav\Translatable\TranslatableServiceProvider::class,
+        GeniusTS\TranslationManager\TranslationManagerServiceProvider::class,
+        
+        Barryvdh\Debugbar\ServiceProvider::class,
+        
     ],
 
     /*
@@ -220,6 +226,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 
         'Menu'      => Lavary\Menu\Facade::class,
+
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
