@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\ProductCategory;
 use Closure;
+use Illuminate\Support\Facades\Cache;
 
 class GenerateMenus
 {
@@ -45,8 +46,40 @@ class GenerateMenus
             //$menu->products->attr(['class' => 'list-inline hs-sub-menu u-header__sub-menu py-3 mb-0', 'id' => 'dropdown']);
         });
 
+        \Menu::make('ProductCategory', function ($menu) {
+
+            if (!Cache::has('product_cates')) {
+                Cache::put('product_cates', ProductCategory::tree(), 1440);
+            }
+            $cates = Cache::get('product_cates');
+
+            //dd($cates);
+            $this->addSubMenu($cates, $menu);
+        });
 
 
         return $next($request);
+    }
+
+    private function addSubMenu($cates, $menu)
+    {
+        
+        foreach ($cates as $cate) {
+            $hasChildren = count($cate->children) > 0;
+
+            $options = [];
+            if ($hasChildren)
+                $options = ['class' => 'dropdown'];
+            else
+                $options = ['url' => 'products/cate/' . $cate->id];
+
+            $menuItem = $menu->add($cate->name, $options);
+            
+
+            $children = $cate->children;
+
+            if ($hasChildren)
+                $this->addSubMenu($children, $menuItem);
+        }
     }
 }

@@ -13,6 +13,7 @@ class ProductCategory extends Model
 
     public $translationModel = 'App\Models\ProductCategoryTranslation';
     public $translationForeignKey = 'category_id';
+    public $translatedAttributes  = ['name'];
 
 
     public function parent() {

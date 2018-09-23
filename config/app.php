@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'zh',
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +168,8 @@ return [
 
         Lavary\Menu\ServiceProvider::class,
 
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+
         Dimsav\Translatable\TranslatableServiceProvider::class,
         GeniusTS\TranslationManager\TranslationManagerServiceProvider::class,
         
@@ -226,6 +228,8 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 
         'Menu'      => Lavary\Menu\Facade::class,
+
+        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],

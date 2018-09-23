@@ -4,21 +4,25 @@
       <div class="d-flex justify-content-end justify-content-lg-start pt-1 pt-lg-0">
         <div class="dropdown">
           <button class="btn dropdown-toggle btn-dark btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span>United States</span>
+            <span>{{ LaravelLocalization::getCurrentLocaleNative() }}</span>
           </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Asia</a>
-            <a class="dropdown-item" href="#">Australia</a>
-            <a class="dropdown-item" href="#">Europe</a>
-            <a class="dropdown-item" href="#">India</a>
-            <a class="dropdown-item" href="#">United States</a>
+            <ul>
+              @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                  <li>
+                      <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                          {{ $properties['native'] }}
+                      </a>
+                  </li>
+              @endforeach
+          </ul>
           </div>
         </div>
       </div>
 
-      <div class="py-1 d-flex align-items-center justify-content-end">
+      {{--  <div class="py-1 d-flex align-items-center justify-content-end">
         <button class="btn btn-primary btn-sm">Login</button>
-      </div>
+      </div>  --}}
     </div>
   </div>
 </nav>

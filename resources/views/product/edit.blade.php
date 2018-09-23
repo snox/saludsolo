@@ -23,7 +23,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-12">
-    	{!! Form::model($product, ['route' => ['product.update', $product->id], 'method' => 'PUT']) !!}
+    	{!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'PUT']) !!}
 			{{ Form::label('name', 'Title:') }}
 			{{ Form::text('name', null, ["class" => 'form-control input-lg']) }}
 

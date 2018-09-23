@@ -30,7 +30,7 @@ class ProductController extends Controller
 
     public function cate($id)
     {
-        $products = Product::orderBy('id', 'desc')->paginate(20);
+        $products = Product::orderBy('id', 'desc')->where('cate_id', $id)->paginate(20);
 
         foreach ($products as $product)
         {
@@ -100,7 +100,7 @@ class ProductController extends Controller
 
         //Session::flash('success', 'Product updated');
 
-        return redirect()->route('product.show', $id);
+        return redirect()->route('products.show', $id);
     }
 
     /**
