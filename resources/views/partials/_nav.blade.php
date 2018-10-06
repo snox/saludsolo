@@ -2,22 +2,14 @@
   <div class="container">
     <div class="collapse navbar-collapse navMenu justify-content-between">
       <div class="d-flex justify-content-end justify-content-lg-start pt-1 pt-lg-0">
-        <div class="dropdown">
-          <button class="btn dropdown-toggle btn-dark btn-sm" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span>{{ LaravelLocalization::getCurrentLocaleNative() }}</span>
-          </button>
-          <div class="dropdown-menu">
-            <ul>
+
+          <div>
               @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                  <li>
-                      <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                          {{ $properties['native'] }}
-                      </a>
-                  </li>
+                  <a class="text-white" style="margin-right: 1.2em;" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                    {{--<span class="flag-icon flag-icon-{{ $localeCode }} flag-icon-squared"></span> --}}{{ $properties['native'] }}
+                  </a>
               @endforeach
-          </ul>
           </div>
-        </div>
       </div>
 
       {{--  <div class="py-1 d-flex align-items-center justify-content-end">
