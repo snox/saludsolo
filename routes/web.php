@@ -23,6 +23,9 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 
     Route::resource('products', 'ProductController')->name('get', 'products');
     Route::get('products/cate/{id}', 'ProductController@cate')->name('products_cate');
+
+    Route::get('product/categories', 'ProductCategoryController@index')->name('product_category_index');
+    Route::post('product/category/locale', 'ProductCategoryController@updateLocale');
 });
 
 Route::resource('users', 'UserController')->name('get', 'users');
@@ -31,7 +34,7 @@ Route::resource('roles', 'RoleController')->name('get', 'roles');
 Route::group(['prefix' => 'admin', 'namespace' => 'Auth', 'middleware' => 'web'], function () {
     
     Route::get('login', 'LoginController@showLoginForm')->name('login');
-    Route::post('login}', 'LoginController@login');
+    Route::post('login', 'LoginController@login');
     Route::get('logout', 'LoginController@logout')->name('logout');
 });
 
