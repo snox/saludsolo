@@ -3,26 +3,22 @@
 @section('products')
 
 
-        <div class="card-header">Products</div>
+        <h1>Products {{isset($cate) ? $cate->name : ""}}</h1>
 
         <div class="row">
 
         @foreach ($products as $product)
-            <div class="col-3">
-            <section>
-            <div class="card">
+            <div class="pbox">
                 <a href="{{ route('products.show', $product->id) }}">
-                    <img class="card-img-top" src="{{$product->image}}" alt="{{$product->name}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$product->name}}</h5>
+                    <img src="{{$product->image}}" alt="{{$product->name}}">
+                    <div>
+                        <h2 class="title">{{$product->name}}</h2>
                     </div>
                 </a>
             </div>
-            </section>
-            </div>
         @endforeach
 
-    </div>
+        </div>
         <div class="text-center">
             {!! $products->links(); !!}
         </div>

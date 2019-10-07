@@ -22,6 +22,9 @@
 @section('content')
 
     <div class="row justify-content-center">
+        <div class="col-md-12" style="height: 200px;">
+        </div>
+        <h2 style="vertical-align: bottom;">Edit: {{$product->name}}</h2>
         <div class="col-md-12">
     	{!! Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'PUT']) !!}
 			{{ Form::label('name', 'Title:') }}
@@ -29,6 +32,11 @@
 
 			{{ Form::label('content', "Body:", ['class' => 'form-spacing-top']) }}
 			{{ Form::textarea('content', null, ['class' => 'form-control']) }}
+
+            <label>
+            	{!! Form::checkbox('show_on_home', '1', null,  ['id' => 'show_on_home']) !!}
+            	Show on homepage.
+            </label>
 
             {{ Form::submit('Update', ['class' => 'btn btn-block btn-success', 'style' => 'margin-top: 15px;']) }}
             {!! Form::close() !!}

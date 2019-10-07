@@ -17,6 +17,9 @@ Auth::routes();
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function()
 {
+    $locale = LaravelLocalization::getCurrentLocale();
+    app()->setLocale($locale);
+
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/contact', 'HomeController@contractUs')->name('contact');
     Route::get('/admin', 'HomeController@admin')->name('admin');

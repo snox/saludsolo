@@ -1,10 +1,10 @@
 @extends('layouts.product')
 
-@section('title', '| View ' . $product->name)
+@section('title', '- ' . $product->name)
 
 @section('products')
 
-    <h1 style="margin-top: -60px;">{{ $product->name }}</h1>
+    <h1>{{ $product->name }}</h1>
 
     <div style="padding: 30px;">
 <p class="lead">{!! $product->content !!}</p>

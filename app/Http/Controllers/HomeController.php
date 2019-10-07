@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductCategory;
-use Illuminate\Http\Request;
+use App\Models\Product;
 
 class HomeController extends Controller
 {
@@ -24,8 +23,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //dd(ProductCategory::tree());
-        return view('home');
+        $locale = \LaravelLocalization::getCurrentLocale();
+
+        $products = Product::translatedIn($locale)->where('show_on_home', true)->orderBy('id', 'desc')->take(20)->get();
+
+        foreach ($products as $product)
+        {
+            $product->image = str_replace('_{i}xa.png', '', $product->image);
+        }
+
+        return view('home')->withProducts($products);
     }
 
     public function contractUs()

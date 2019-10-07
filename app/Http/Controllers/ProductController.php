@@ -16,21 +16,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderBy('id', 'desc')->paginate(20);
+        $locale = \LaravelLocalization::getCurrentLocale();
 
-        $cates = ProductCategory::all();
+        $products = Product::translatedIn($locale)->orderBy('id', 'desc')->paginate(20);
 
-        foreach ($products as $product)
-        {
-            $product->image = str_replace('_{i}xa.png', '', $product->image);
-        }
-
-        return view('product.index')->withProducts($products)->withProductCategories($cates);
-    }
-
-    public function cate($id)
-    {
-        $products = Product::orderBy('id', 'desc')->where('cate_id', $id)->paginate(20);
 
         foreach ($products as $product)
         {
@@ -38,6 +27,21 @@ class ProductController extends Controller
         }
 
         return view('product.index')->withProducts($products);
+    }
+
+    public function cate($id)
+    {
+        $locale = \LaravelLocalization::getCurrentLocale();
+        $products = Product::translatedIn($locale)->orderBy('id', 'desc')->where('cate_id', $id)->paginate(20);
+
+        $cate = ProductCategory::translatedIn($locale)->find($id);
+
+        foreach ($products as $product)
+        {
+            $product->image = str_replace('_{i}xa.png', '', $product->image);
+        }
+
+        return view('product.index')->withProducts($products)->withCate($cate);
     }
 
     /**
@@ -95,6 +99,7 @@ class ProductController extends Controller
 
         $product->name = $request->input('name');
         $product->content = $request->input('content');
+        $product->show_on_home = $request->input('show_on_home');
 
         $product->save();
 

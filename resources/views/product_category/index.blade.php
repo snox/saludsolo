@@ -1,24 +1,20 @@
-@extends('layouts.main')
+@extends('layouts.product')
 
 @section('content')
     <div class="row justify-content-center">
-        <h2>产品分类管理 {{ App::getLocale() }}</h2>
+        <h2>产品分类管理</h2>
 
         <table class="table table-hover">
             <thead class="thead-light">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">PID</th>
-                <th scope="col">名称</th>
-                <th scope="col">{{ App::getLocale() }}</th>
+                <th scope="col">名称 [{{ App::getLocale() }}]</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($productCategories as $category)
             <tr>
                 <th scope="row">{{ $category->id }}</th>
-                <td>{{ $category->pid }}</td>
-                <td>{{ $category->name }}</td>
                 <td>
                     <form class="form-inline" action="/{{ App::getLocale() }}/product/category/locale" method="post">
                         @csrf

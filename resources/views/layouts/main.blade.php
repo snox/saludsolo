@@ -10,7 +10,7 @@
 
             @yield('banner')
 
-            <div class="container">
+            <div class="container pagecontent" style="">
                 @include('partials._messages')
 
                 @yield('content')

@@ -15,7 +15,6 @@ class ProductCategory extends Model
     public $translationForeignKey = 'category_id';
     public $translatedAttributes  = ['name'];
 
-
     public function parent() {
         return $this->belongsTo('App\Models\ProductCategory', 'id', 'pid');
     }
@@ -29,7 +28,8 @@ class ProductCategory extends Model
         return parent::delete();
     }
 
-    public static function tree() {
-        return static::with(implode('.', array_fill(0, 4, 'children')))->where('pid', '=', 0)->get();
+    public static function tree($locale) {
+        return static::with(implode('.', array_fill(0, 4, 'children')))
+            ->where('pid', '=', 0)->translatedIn($locale)->get();
     }
 }

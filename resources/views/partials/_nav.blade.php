@@ -21,7 +21,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-main sticky-top">
   <div class="container">
-    <a class="navbar-brand navbar-logo" href="/">
+    <a class="navbar-brand navbar-logo" href="/{{ LaravelLocalization::getCurrentLocale() }}">
       SaludSolo
     </a>
 
@@ -30,8 +30,25 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end navMenu">
+{{--      <ul class="navbar-nav">--}}
+{{--        @include(config('laravel-menu.views.bootstrap-items'), ['items' => $MyNavBar->roots()])--}}
+{{--      </ul>--}}
       <ul class="navbar-nav">
-        @include(config('laravel-menu.views.bootstrap-items'), ['items' => $MyNavBar->roots()])
+        <li class="nav_item active">
+          <a class="nav-link h5" href="/{{ LaravelLocalization::getCurrentLocale() }}">
+            Home
+          </a>
+        </li>
+        <li class="nav_item">
+          <a class="nav-link h5" href="/{{ LaravelLocalization::getCurrentLocale() }}/products">
+            Products
+          </a>
+        </li>
+        <li class="nav_item">
+          <a class="nav-link h5" href="/{{ LaravelLocalization::getCurrentLocale() }}/contact">
+            Contact
+          </a>
+        </li>
       </ul>
     </div>
   </div><!-- /.container-fluid -->
