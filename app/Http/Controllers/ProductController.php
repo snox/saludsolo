@@ -16,9 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $locale = \LaravelLocalization::getCurrentLocale();
+        //$locale = \LaravelLocalization::getCurrentLocale();
 
-        $products = Product::translatedIn($locale)->orderBy('id', 'desc')->paginate(20);
+        $products = Product::orderBy('id', 'desc')->paginate(20);
 
 
         foreach ($products as $product)
@@ -32,7 +32,7 @@ class ProductController extends Controller
     public function cate($id)
     {
         $locale = \LaravelLocalization::getCurrentLocale();
-        $products = Product::translatedIn($locale)->orderBy('id', 'desc')->where('cate_id', $id)->paginate(20);
+        $products = Product::orderBy('id', 'desc')->where('cate_id', $id)->paginate(20);
 
         $cate = ProductCategory::translatedIn($locale)->find($id);
 

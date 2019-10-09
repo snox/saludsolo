@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+    <div style="height: 100px;"></div>
     <div class="row">
         <h1>BOUTIQUE</h1>
     </div>
