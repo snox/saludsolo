@@ -23,9 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $locale = \LaravelLocalization::getCurrentLocale();
+        //$locale = \LaravelLocalization::getCurrentLocale();
 
-        $products = Product::translatedIn($locale)->where('show_on_home', true)->orderBy('id', 'desc')->take(20)->get();
+        $products = Product::where('show_on_home', true)->orderBy('id', 'desc')->take(20)->get();
 
         foreach ($products as $product)
         {
